@@ -1,0 +1,40 @@
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+ 
+bool isbalance(string s){
+    int n = s.size();
+    for (int i=0;i<n/2;i++){
+        if(s[i]!=s[n-1-i]) return false;
+    }
+    return true;
+}
+int main()
+{
+    int N;
+    cin>>N;
+    for (int i=0;i<N;i++){
+        int m;
+        cin>>m;
+        vector<string> str;
+        int flag = 1;
+        for (int j=0;j<m;j++){
+            string tmp;
+            cin>>tmp;
+            str.push_back(tmp);
+            if (!isbalance(tmp)) flag=0;
+            
+        }
+    //    cout<<flag<<endl;
+        for (int j=0;j<m/2;j++){
+          //  cout<<str[j]<<" "<<str[m-1-j]<<endl;
+            if (str[j].compare(str[m-1-j])!=0) flag=0;
+        }
+        if (flag==1) cout<<"YES"<<endl;
+        else cout<<"NO"<<endl;
+ 
+    }
+    
+    return 0;
+}
